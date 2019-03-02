@@ -121,7 +121,7 @@
 <template>
   <div :class="$style.App">
     <h1>Hello SAFE Network!</h1>
-    <h2>Trip Planner</h2>
+    <h2>Davids Trip Planner</h2>
     <div>
       <span>{{remaining()}} of {{trips.length}} trips remaining</span>
       [ <a href="" v-on:click.prevent="remove">Delete Selected Trips</a> ]

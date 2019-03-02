@@ -1,5 +1,5 @@
 {
-  "name": "safe_web_app_quick_start",
+  "name": "davids_safe_web_app",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maidsafe/safe_examples"
+    "url": "https://github.com/hwthomas/dh-app"
   },
   "dependencies": {
     "archiver": "^2.0.3",
