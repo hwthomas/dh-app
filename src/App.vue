@@ -26,48 +26,49 @@
       selectTrip: async function(radioTrip) {
         if (this.newText == true) {
           if (confirm("Discard Changes?") == true) {
-          this.newText = [];
-          this.radioKey = await radioTrip.key;
-          this.tripText = await radioTrip.value.text;
+            this.newText = [];
+            this.radioKey = await radioTrip.key;
+            this.tripText = await radioTrip.value.text;
           }
           else {
             return;
-            }  
-          }
+          }  
+        }
         else {
-        this.radioKey = await radioTrip.key;
-        this.tripText = await radioTrip.value.text;
+          this.radioKey = await radioTrip.key;
+          this.tripText = await radioTrip.value.text;
         }
       },
 
       editTrip: async function() {
         try {
-        this.selectedVersion = await safenetwork.getSelectedEntryVersion(this.radioKey);
-        await safenetwork.updateItem(this.radioKey, {text: this.tripText, made: false}, this.selectedVersion);
-        let savedMessage = document.getElementById("savedMessage");
-        savedMessage.className = "show";
-        setTimeout(function(){ savedMessage.className = savedMessage.className.replace("show", ""); },1200);
-        this.newText = [];
+          this.selectedVersion = await safenetwork.getSelectedEntryVersion(this.radioKey);
+          await safenetwork.updateItem(this.radioKey, {text: this.tripText, made: false}, this.selectedVersion);
+          let savedMessage = document.getElementById("savedMessage");
+          savedMessage.className = "show";
+          setTimeout(function(){ savedMessage.className = savedMessage.className.replace("show", ""); },1200);
+          this.newText = [];
         }
-        catch (err)
-        {alert ("No Trip Selected!\n\nAdd New Trip or Select From List...\n")}
+        catch (err) {
+          alert ("No Trip Selected!\n\nAdd New Trip or Select From List...\n")
+        }
         await this.refreshList();
       },
 
-      clearTextBox: async function()  {
+      clearTextBox: async function() {
         if (this.newText == true) {
-         if (confirm ("Discard Changes?")==true) {
-          this.newText = [];
-          this.radioKey = '';
-          this.tripText = '';
-         }
-         else {
-           return;
-         }
+          if (confirm ("Discard Changes?")==true) {
+            this.newText = [];
+            this.radioKey = '';
+            this.tripText = '';
+           }
+           else {
+             return;
+           }
         }
         else {
-        this.radioKey = '';
-        this.tripText = '';
+          this.radioKey = '';
+          this.tripText = '';
         }
       },
 
