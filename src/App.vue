@@ -83,7 +83,9 @@
       remove: async function() {
         let tripsToRemove = []
         await this.trips.forEach(async (trip) => {
-          if (trip.value.made) tripsToRemove.push({ key: trip.key, version: trip.version });
+          if (trip.value.made) {
+            tripsToRemove.push({ key: trip.key, version: trip.version });
+          }
         });
 
         if (tripsToRemove.length > 0) {
